@@ -18,33 +18,14 @@ namespace Calculator
                 string operation = Console.ReadLine();
                 Console.WriteLine("请输入数字B：");
                 string parameterB = Console.ReadLine();
-                double result = 0;
-                switch (operation)
-                {
-                    case "+":
-                        result = Convert.ToDouble(parameterA) + Convert.ToDouble(parameterB);
-                        break;
-                    case "-":
-                        result = Convert.ToDouble(parameterA) - Convert.ToDouble(parameterB);
-                        break;
-                    case "*":
-                        result = Convert.ToDouble(parameterA) * Convert.ToDouble(parameterB);
-                        break;
-                    case "/":
-                        if (parameterB != "0")
-                        {
-                            result = Convert.ToDouble(parameterA) / Convert.ToDouble(parameterB);
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                Console.WriteLine(result.ToString());
+                double result = Operation.GetOperationResult(Convert.ToDouble(parameterA), Convert.ToDouble(parameterB), operation);
+                Console.WriteLine("\n结果是:"+result);
             }
             catch (Exception ex)
             {
                 throw new Exception( ex.Message);
             }
+            Console.ReadKey();
         }
     }
 }
